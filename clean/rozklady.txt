@@ -1,0 +1,18 @@
+Dyskretne:
+    - Dwumianowy (wartości od 0 do n)
+    - Poissona (wartości od 0 do inf)
+Ciągłe: 
+    - Rozkład jednostajny
+    - Rozkład normalny
+    - Rozkład wykładniczy (o dodatnich wartościach)
+    - Rozkład Rayleigha
+
+Dobieranie modelu ciągłego:
+ - Rysujemy histogram, stwierdzamy czy jest lewostronnie czy prawostronnie asymetryczny,
+   dobieramy odpowiedni model na podstawie funkcji gęstości 
+
+S = Odchylenie standardowe
+S^2 = Wariancja (średnia arytmetyczna kwadratów odchyleń od ich średniej arytmetycznej)
+EN = Estymator Nieobciążony
+ENW = Estymator Największej Wiarygodnośći
+ENMW = Estymator Minimalnej Wariancji

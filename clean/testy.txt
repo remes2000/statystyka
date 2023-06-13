@@ -1,0 +1,1 @@
+1) Test Shapiro/Wilka - test który sprawdza czy dane są z rozkladu normalnego
