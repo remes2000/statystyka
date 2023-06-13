@@ -622,3 +622,103 @@ k <- c(161, 162, 163, 162, 166, 164, 168, 165, 168, 157, 161, 172)
 ks.test(m,k)
 
 rm(list=ls())
+
+##=======================================================
+# (ZAD 6.1)
+#
+cat("\014")
+
+same <- data.frame(data=c(25,26,17,15,14,17,14,20,11,21),context = "same")
+Different <- data.frame(data=c(11,21,9,6,7,14,12,4,7,19),context = "Different")
+Imagery <- data.frame(data=c(14,15,29,10,12,22,14,20,22,12),context = "Imagery")
+Photo <- data.frame(data=c(25,15,23,21,18,24,14,27,12,11),context = "Photo")
+Placebo <- data.frame(data=c(8,20,10,7,15,7,1,17,11,4),context = "Placebo")
+Smith <- data.frame(rbind(same,Different,Imagery,Photo,Placebo))
+Smith
+
+summary(Smith)
+
+# 1.Wyznacz œrednie i zrób wykres
+aggregate(Smith$data, list(DOSE = Smith$context), FUN = mean)
+boxplot(data ~ context, data = Smith)
+
+# 2.Wykonaj test analizy wariancji
+summary(aov(data ~ context, data = Smith))
+
+# 3.SprawdŸ za³o¿enia modelu jednoczynnikowej analizy wariancji.
+shapiro.test(lm(data ~ context, data = Smith)$residuals)
+bartlett.test(data ~ context, data = Smith)
+fligner.test(data ~ context, data = Smith)
+library(car)
+leveneTest(data ~ context, data = Smith)
+leveneTest(data ~ context, data = Smith, center = "mean")
+
+# 4.Wykonaj testy post hoc
+pairwise.t.test(Smith$data, Smith$context, data = vaccination)
+model_aov <- aov(data ~ context, data = Smith)
+TukeyHSD(model_aov)
+library(agricolae)
+HSD.test(model_aov, "context", console = TRUE)
+SNK.test(model_aov, "context", console = TRUE)
+LSD.test(model_aov, "context", p.adj = "holm", console = TRUE)
+scheffe.test(model_aov, "context", console = TRUE)
+
+# podpunkt 6------------------------
+aggregate(Smith$data, list(DOSE = Smith$context),
+          FUN = median)
+
+kruskal.test(data ~ context, data = Smith)
+
+pairwise.wilcox.test(Smith$data, Smith$context, data = Smith)
+install.packages("FSA")
+library(FSA)
+dunnTest(data ~ context, data = Smith, method = "bh")
+
+
+##=======================================================
+# (ZAD 6.2)
+#
+cat("\014")
+eysenck <- read.table("http://ls.home.amu.edu.pl/data_sets/Eysenck.txt",header = TRUE)
+tab <- eysenck[,c(2,3)]
+
+summary(tab)
+#1
+aggregate(tab$Wynik, list(DOSE = tab$Instrukcja), FUN = mean)
+
+#2
+boxplot(Wynik ~ Instrukcja, data = tab)
+
+#3
+summary(aov(Wynik ~ Instrukcja, data = tab))
+
+#4
+shapiro.test(lm(Wynik ~ Instrukcja, data = tab)$residuals)
+bartlett.test(Wynik ~ Instrukcja, data = tab)
+fligner.test(Wynik ~ Instrukcja, data = tab)
+leveneTest(Wynik ~ Instrukcja, data = tab)
+leveneTest(Wynik ~ Instrukcja, data = tab, center = "mean")
+
+#5
+pairwise.t.test(tab$Wynik, tab$Instrukcja, data = tab)
+model_aov <- aov(Wynik ~ Instrukcja, data = tab)
+TukeyHSD(model_aov)
+HSD.test(model_aov, "Instrukcja", console = TRUE)
+SNK.test(model_aov, "Instrukcja", console = TRUE)
+LSD.test(model_aov, "Instrukcja", p.adj = "holm", console = TRUE)
+scheffe.test(model_aov, "Instrukcja", console = TRUE)
+
+#6 ---
+
+#7 
+aggregate(tab$Wynik, list(DOSE = tab$Instrukcja),
+          FUN = median)
+
+kruskal.test(Wynik ~ Instrukcja, data = tab)
+
+pairwise.wilcox.test(tab$Wynik, tab$Instrukcja, data = tab)
+
+dunnTest(Wynik ~ Instrukcja, data = tab, method = "bh")
+
+
+rm(list=ls())
