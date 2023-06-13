@@ -1,0 +1,14 @@
+Rodzaje zmiennych:
+Jakościowa, kategoryczna
+    Istnieje tylko kilka możliwych wartości zmiennej. W próbie wartości zmiennej powtarzają się.
+    Cechy te mogą być mierzone w skali:
+        nominalnej - Nie ma porządku i nie można wykonywać operacji arytmetycznych, 
+            np. kolor oczu, płeć.
+        porządkowej - Istnieje porządek, ale nie można wykonywać operacji arytmetycznych 
+            (nie da się w sensowny sposób określić różnicy ani ilorazu między dwiema wartościami), 
+        np. wykształcenie, kolejność zawodników na podium.
+Ilościowa - istnieje porządek i można wykonywać operacje arytmetyczne.
+    dyskretna - Istnieje tylko kilka lub przeliczalnie wiele możliwych wartości zmiennej. 
+        W próbie wartości zmiennej powtarzają się. Na przykład: liczba zgłoszeń w centrali telefonicznej.
+    ciągła - Istnieje nieskończenie, nieprzeliczalnie wiele możliwych wartości zmiennej. 
+        W próbie wartości zmiennej nie powinny się powtarzać. Na przykład: czas, waga, wysokość, zarobki.
