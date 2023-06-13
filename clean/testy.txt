@@ -1,1 +1,8 @@
 1) Test Shapiro/Wilka - test który sprawdza czy dane są z rozkladu normalnego
+2) Test T-studenta dla 1 próby ( załozenia: normalność )
+3) Test T-studenta dla 2 prob niezaleznych ( zalozenia: normalnosc, proby niezalezne, równość wariancji)
+4) Test F-Snedecora dla wariancji w dwóch próbach niezależnych (testujemy czy dwie wariancje są równe)
+5) Test T-studenta dla prób zależnych ( założenia normalność, ale wariancje nie muszą być równe )
+   Uwagi, tutaj H0 jest takie, ze obie wartości są równe
+6) Test Welcha dla 2 prób niezależnych ( założenia: normalność, ale nie równość wariancji )
+7) Testy Manna-Whitneya-Wilcoxona ( nie jest konieczna normalność, jedynie ciągła dystrubuanta F )
