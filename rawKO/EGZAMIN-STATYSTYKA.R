@@ -1,4 +1,4 @@
-#USTAWIENIE KATALOGU BIE¯¥CEGO NA EGZAMINIE:
+#USTAWIENIE KATALOGU BIEï¿½ï¿½CEGO NA EGZAMINIE:
 getwd()
 setwd("j:/Desktop/EGZAMIN-STATYSTYKA")
 getwd()
@@ -109,7 +109,7 @@ rm(list=ls())
 #====================================================================
 # (ZAD 1.13)
 cat("\014")
-moja_lista <- list(c("Krystian, Osiñski"),3.14,function(x) sqrt(x),seq(0.02,1,by=0.02))
+moja_lista <- list(c("Krystian, Osiï¿½ski"),3.14,function(x) sqrt(x),seq(0.02,1,by=0.02))
 moja_lista
 moja_lista <- moja_lista[c(-1,-3)]
 moja_lista
@@ -220,8 +220,8 @@ ankieta <- read.table("ankieta.txt",header = TRUE)
 data.frame(cbind(wynik = table(ankieta$wynik),procent = prop.table(table(ankieta$wynik))))
 x <- ankieta[ankieta$szkola == "p",]$wynik
 data.frame(cbind(wynik = table(x),procent = prop.table(table(x))))
-barplot(table(ankieta$wynik),xlab = "odpowiedzi",ylab="Liczebnoœæ",main="Rozk³ad empiryczny zmiennej wynik")
-barplot(prop.table(table(ankieta$wynik)),xlab="odpowiedzi",ylab="Procent",main="Rozk³ad empiryczny zmiennej wynik")
+barplot(table(ankieta$wynik),xlab = "odpowiedzi",ylab="Liczebnoï¿½ï¿½",main="Rozkï¿½ad empiryczny zmiennej wynik")
+barplot(prop.table(table(ankieta$wynik)),xlab="odpowiedzi",ylab="Procent",main="Rozkï¿½ad empiryczny zmiennej wynik")
 pie(table(ankieta$wynik))
 m <- ankieta[ankieta$plec=="m",]$wynik
 k <- ankieta[ankieta$plec=="k",]$wynik
@@ -236,10 +236,10 @@ rm(list=ls())
 cat("\014")
 load("Centrala.RData")
 x <- Centrala
-data.frame(cbind(liczba_zg³oszeñ = table(x),prawdopodobieñstwo = prop.table(table(x))))
+data.frame(cbind(liczba_zgï¿½oszeï¿½ = table(x),prawdopodobieï¿½stwo = prop.table(table(x))))
 
-barplot(table(x),labx="liczba zg³oszeñ",laby="Liczebnoœæ",main="Rozk³ad empiryczny liczby zg³oszeñ w Centrali")
-barplot(prop.table(table(x)),xlab="Liczba zg³oszeñ",ylab="Prawdopodoieñstwo",main="Rozk³ad empiryczny liczby zg³oszeñ w centrali")
+barplot(table(x),labx="liczba zgï¿½oszeï¿½",laby="Liczebnoï¿½ï¿½",main="Rozkï¿½ad empiryczny liczby zgï¿½oszeï¿½ w Centrali")
+barplot(prop.table(table(x)),xlab="Liczba zgï¿½oszeï¿½",ylab="Prawdopodoieï¿½stwo",main="Rozkï¿½ad empiryczny liczby zgï¿½oszeï¿½ w centrali")
 pie(table(x))
 (mean(x$Liczba))
 (median(x$Liczba))
@@ -255,14 +255,14 @@ head(awarie)
 
 b_h <- hist(awarie$V1,plot = FALSE)$breaks
 data.frame(cbind(liczebnosc = table(cut(awarie$V1,breaks = b_h)), procent=prop.table(table(cut(awarie$V1,breaks = b_h)))))
-hist(awarie$V1,xlab="czas bezawaryjnej pracy",main = "Rozk³ad empiryczny bezawaryjnej pracy")
+hist(awarie$V1,xlab="czas bezawaryjnej pracy",main = "Rozkï¿½ad empiryczny bezawaryjnej pracy")
 rug(jitter(awarie$V1))
 
-hist(awarie$V1,probability = TRUE,xlab="Czas bezawaryjenj pracy",main = "Rozk³ad empiryczny bezawaryjengo czasu pracy", 
+hist(awarie$V1,probability = TRUE,xlab="Czas bezawaryjenj pracy",main = "Rozkï¿½ad empiryczny bezawaryjengo czasu pracy", 
      col = "lightblue")
 lines(density(awarie$V1), col = "red", lwd = 2)
 
-boxplot(awarie$V1,main="Rozk³ad empiryczny bezawaryjnego czasu pracy",ylab="czas bezawaryjenj pracy")
+boxplot(awarie$V1,main="Rozkï¿½ad empiryczny bezawaryjnego czasu pracy",ylab="czas bezawaryjenj pracy")
 (mean(awarie$V1))
 (median(awarie$V1))
 (sd(awarie$V1))
@@ -279,7 +279,7 @@ cat("\014")
 
 a <-  function(x,na.rm = FALSE){
   if(!is.numeric(x)){
-    stop("x nie jest wartoœci¹ numeryczn¹!")
+    stop("x nie jest wartoï¿½ciï¿½ numerycznï¿½!")
   }
   
   if(!na.rm){
@@ -299,7 +299,7 @@ rm(list=ls())
 ##=======================================================
 # (ZAD 4.1)
 cat("\014")
-# histogram z estymatorem j¹drowym gêstoœci
+# histogram z estymatorem jï¿½drowym gï¿½stoï¿½ci
 hamulce <- read.table("http://ls.home.amu.edu.pl/data_sets/hamulce.txt", dec = ",")
 
 install.packages("EnvStats")
@@ -311,8 +311,8 @@ x2 <- EnvStats::enorm(hamulce$V1,method = "mvue")$parameters
 x3 <- EnvStats::enorm(hamulce$V1,method = "mle/mme")$parameters
 
 hist(hamulce$V1, 
-     xlab = "D³ugoœæ drogi hamowania", 
-     main = "Rozk³ady empiryczny i teoretyczny d³ugoœci drogi hamowania",
+     xlab = "Dï¿½ugoï¿½ï¿½ drogi hamowania", 
+     main = "Rozkï¿½ady empiryczny i teoretyczny dï¿½ugoï¿½ci drogi hamowania",
      probability = TRUE, 
      col = "lightgreen")
 lines(density(hamulce$V1), col = "red", lwd = 2)
@@ -333,9 +333,9 @@ cat("\014")
 load("Centrala.RData")
 head(Centrala)
 barplot(prop.table(table(Centrala$Liczba)),
-        main="Rozk³¹d empiryczny liczby zg³oszeñ",
-        ylab="Prawdopodobieñstwo",
-        xlab="liczba zg³oszeñ")
+        main="Rozkï¿½ï¿½d empiryczny liczby zgï¿½oszeï¿½",
+        ylab="Prawdopodobieï¿½stwo",
+        xlab="liczba zgï¿½oszeï¿½")
 library(EnvStats)
 lambda_edt <- EnvStats::epois(Centrala$Liczba)$parameters
 
@@ -346,7 +346,7 @@ counts <- matrix(c(prop.table(table(Centrala$Liczba)),probs),nrow = 2, byrow = T
 rownames(counts) <- c("empiryczny","teoretyczny")
 colnames(counts) <- sort(unique(Centrala$Liczba))
 counts
-barplot(counts, xlab = "Liczba zg³oszeñ w centrali", ylab="Prawdopodobieñstwo",main="Rozk³ad empiryczny i teoretetyczny liczby zg³oszeñ centrali",col=c("red","blue"),legend=rownames(counts),beside=TRUE)
+barplot(counts, xlab = "Liczba zgï¿½oszeï¿½ w centrali", ylab="Prawdopodobieï¿½stwo",main="Rozkï¿½ad empiryczny i teoretetyczny liczby zgï¿½oszeï¿½ centrali",col=c("red","blue"),legend=rownames(counts),beside=TRUE)
 
 # wykres kwantyl-kwantyl
 qqplot(rpois(length(Centrala$Liczba),lambda=lambda_edt ), Centrala$Liczba)
@@ -399,89 +399,89 @@ rm(list=ls())
 ##=======================================================
 # (ZAD 5.1)
 cat("\014")
-# 1 próba - niezale¿ne - ci¹g³e
+# 1 prï¿½ba - niezaleï¿½ne - ciï¿½gï¿½e
 # H0: mu == 870
 g <- c(862, 870, 876, 866, 871, 865, 861, 873, 871, 872)
-shapiro.test(g) #rozk³ad normalny - brak podstaw do orzucenia H0
+shapiro.test(g) #rozkï¿½ad normalny - brak podstaw do orzucenia H0
 mean(g) #868.7 "less"
 t.test(g,mu=870,alternative = "less") # brak podstaw do odrzucenia H0
-#OdpowiedŸ: Œrednia g³êbokoœæ morza wynosi 870m
+#Odpowiedï¿½: ï¿½rednia gï¿½ï¿½bokoï¿½ï¿½ morza wynosi 870m
 
 rm(list=ls())
 
 ##=======================================================
 # (ZAD 5.2)
 cat("\014")
-# 2 próby - niezale¿ne - ci¹g³e
+# 2 prï¿½by - niezaleï¿½ne - ciï¿½gï¿½e
 # H0: mu1 == mu2
 A <- c(78.2 , 78.5 , 75.6 , 78.5 , 78.5 , 77.4 , 76.6 ) 
 B <- c(76.1 , 75.2 , 75.8 , 77.3 , 77.3 , 77.0 , 74.4 , 76.2 , 73.5 , 77.4)
 boxplot(A,B)
-shapiro.test(A) #rozk³ad normalny - brak podstaw do odrzucenia H0
-shapiro.test(B) #rozk³ad normalny - brak podstaw do odrzucenia H0
+shapiro.test(A) #rozkï¿½ad normalny - brak podstaw do odrzucenia H0
+shapiro.test(B) #rozkï¿½ad normalny - brak podstaw do odrzucenia H0
 var(A)
 var(B)
-var.test(A,B,alternative = "less") #równoœæ wariancji 
+var.test(A,B,alternative = "less") #rï¿½wnoï¿½ï¿½ wariancji 
 mean(A)
 mean(B)
 t.test(A,B,alternative = "greater", var.equal = TRUE)
 # odrzucamy Ho, przyjmujemy H1
-# OdpowiedŸ: Proszek do prania A jest znacz¹co lepszy on proszku do prania B
+# Odpowiedï¿½: Proszek do prania A jest znaczï¿½co lepszy on proszku do prania B
 rm(list=ls())
 
 ##=======================================================
 # (ZAD 5.3)
 cat("\014")
-# 2 próby zale¿ne - rozk³ad normalny
+# 2 prï¿½by zaleï¿½ne - rozkï¿½ad normalny
 #H0: mu1 == mu2
 przed <- c(84, 87, 87, 90, 90, 90, 90, 93, 93, 96)
 po <-    c(89, 92, 98, 95, 95, 92, 95, 92, 98, 101.)
 boxplot(przed,po)
-shapiro.test(przed) #normalnoœæ - brak podstaw do odrzucenia H0
-shapiro.test(po) #normalnoœæ - brak podstaw do odrzucenia H0
+shapiro.test(przed) #normalnoï¿½ï¿½ - brak podstaw do odrzucenia H0
+shapiro.test(po) #normalnoï¿½ï¿½ - brak podstaw do odrzucenia H0
 mean(przed)
 mean(po)
 t.test(przed,po, alternative = "less", paired = TRUE)
 # odrzucamy H0, przyjmujemy H1
-# OdpowiedŸ: Film ma znacz¹cy wp³yw poprawienie podejœcia do tego typu szkó³
+# Odpowiedï¿½: Film ma znaczï¿½cy wpï¿½yw poprawienie podejï¿½cia do tego typu szkï¿½
 rm(list=ls())
 
 ##=======================================================
 # (ZAD 5.4)
 cat("\014")
-# 2 próby - niezale¿ne
+# 2 prï¿½by - niezaleï¿½ne
 # H0 : mu1 == mu2
 m <- c(171, 176, 179, 189, 176, 182, 173, 179, 184, 186, 189, 167, 177)
 k <- c(161, 162, 163, 162, 166, 164, 168, 165, 168, 157, 161, 172)
 boxplot(m,k) 
-shapiro.test(m) #normalnoœæ - brak podstaw do odrzucenia H0
-shapiro.test(k) #normalnoœæ - brak podstaw do odrzucenia H0
+shapiro.test(m) #normalnoï¿½ï¿½ - brak podstaw do odrzucenia H0
+shapiro.test(k) #normalnoï¿½ï¿½ - brak podstaw do odrzucenia H0
 var(m)
 var(k)
 var.test(m,k,alternative = "greater") #brak takiej samej wariancji!
 # odrzucenie testu - t.studenta!
-# przejœcie na test welcha!
+# przejï¿½cie na test welcha!
 mean(m)
 mean(k)
 t.test(m,k,var.equal = FALSE,alternative = "greater")
-#odrzucenie H0! Przyjêcie H1
-# odpowiedŸ œredni wzorst mê¿czyzn jest znacz¹ca wiêkszy od œredniego wzrostu kobiet
+#odrzucenie H0! Przyjï¿½cie H1
+# odpowiedï¿½ ï¿½redni wzorst mï¿½czyzn jest znaczï¿½ca wiï¿½kszy od ï¿½redniego wzrostu kobiet
 rm(list=ls())
 
 ##=======================================================
 # (ZAD 5.6)
 cat("\014")
-# nale¿y wykorzystaæ odpowiedni test nieparametryczny!
+# naleï¿½y wykorzystaï¿½ odpowiedni test nieparametryczny!
 # test Manna-Whitneya-Wilcoxona
 
-#PRZYK£AD
+#PRZYKï¿½AD
 x <- c(242.2, 243.8, 252.8, 245.4, 245.6, 253.6, 247.3, 238.7,
        241.6, 242.8, 251.1, 246.8, 247.0, 245.6, 242.2, 253.9)
 median(x)
 wilcox.test(x,mu=250,alternative = "less")
 
 #ZADANIE1
-# 1 próba - niezale¿ne - ci¹g³e
+# 1 prï¿½ba - niezaleï¿½ne - ciï¿½gï¿½e
 
 g <- c(862, 870, 876, 866, 871, 865, 861, 873, 871, 872)
 median(g)
@@ -492,14 +492,14 @@ rm(list=ls())
 ##=======================================================
 # (ZAD 5.7)
 cat("\014")
-#PRZYK£AD
+#PRZYKï¿½AD
 a <- c(6.6, 6.5, 9.0, 10.3, 11.3, 8.1, 6.3, 11.6)
 b <- c(6.8, 2.5, 7.4, 8.5, 8.1, 6.1, 3.4, 2.0)
 median(a)
 median(b)
 wilcox.test(a,b,alternative = "greater",paired = TRUE )
 # odrzucamy H0
-#odpowiedŸ hipnoza zmniejsza znacz¹co poziom odczuwanego bólu
+#odpowiedï¿½ hipnoza zmniejsza znaczï¿½co poziom odczuwanego bï¿½lu
 
 #ZADANIE2
 A <- c(78.2 , 78.5 , 75.6 , 78.5 , 78.5 , 77.4 , 76.6 ) 
@@ -517,7 +517,7 @@ median(przed)
 median(po)
 wilcox.test(przed,po,alternative = "less",paired = TRUE)
 #odrzucamy H0
-#film znazcz¹co poprawia zdanie o szko³ach publicznych
+#film znazczï¿½co poprawia zdanie o szkoï¿½ach publicznych
 
 #ZADANIE4
 m <- c(171, 176, 179, 189, 176, 182, 173, 179, 184, 186, 189, 167, 177)
@@ -526,7 +526,7 @@ median(m)
 median(k)
 wilcox.test(m,k,alternative = "greater")
 #Odrzucamy H0 - przyjmujemy H1
-#Mê¿czyŸni maj¹ znacz¹co wiêkszy œredni wzrost ni¿ kobiety
+#Mï¿½czyï¿½ni majï¿½ znaczï¿½co wiï¿½kszy ï¿½redni wzrost niï¿½ kobiety
 
 rm(list=ls())
 
@@ -547,7 +547,7 @@ cat("\014")
 (prB <- 45/150)
 prop.test(c(20, 45), c(120, 150), alternative = "less")
 #odrzucamy H0 - przyjmujemy H1
-# OdpowiedŸ: w miejœcie B statystycznie znacz¹co wiêcej firm korzytsa z reklam
+# Odpowiedï¿½: w miejï¿½cie B statystycznie znaczï¿½co wiï¿½cej firm korzytsa z reklam
 rm(list=ls())
 
 ##=======================================================
@@ -556,7 +556,7 @@ cat("\014")
 x <- matrix(c(794, 86, 150, 570), nrow = 2) #pisane kolumnami
 mcnemar.test(x)
 #odrzucamy h0 - przyjmujemy H1
-# odpowiedŸ: Istnieje istotna ró¿nica w ocenie dzia³alnoœci prezydenta
+# odpowiedï¿½: Istnieje istotna rï¿½nica w ocenie dziaï¿½alnoï¿½ci prezydenta
 rm(list=ls())
 
 ##=======================================================
@@ -564,7 +564,7 @@ rm(list=ls())
 cat("\014")
 chisq.test(x=c(38,72,40),p=c(0.2,0.5,0.3))
 #Brak podstaw do odrzucenia H0
-#odpowiedŸ: Proporcje odpowiadaj¹ preferencjom klientów
+#odpowiedï¿½: Proporcje odpowiadajï¿½ preferencjom klientï¿½w
 rm(list=ls())
 
 ##=======================================================
@@ -585,7 +585,7 @@ cat("\014")
 x <- matrix(c(50, 20, 10, 90, 50, 6), nrow = 3)
 chisq.test(x)
 #Odrzucamy H0 - przyjmujemy H1
-#Jakoœ produktu zale¿y od metody produkcji
+#Jakoï¿½ produktu zaleï¿½y od metody produkcji
 
 rm(list=ls())
 
@@ -598,7 +598,7 @@ x <- c(242.2, 243.8, 252.8, 245.4, 245.6, 253.6, 247.3, 238.7,
        241.6, 242.8, 251.1, 246.8, 247.0, 245.6, 242.2, 253.9)
 
 
-x <- rnorm(101) #random + nazwa rozk³adu
+x <- rnorm(101) #random + nazwa rozkï¿½adu
 ks.test(x, "pnorm")
 
 rm(list=ls())
@@ -606,7 +606,7 @@ rm(list=ls())
 ##=======================================================
 # (ZAD 5.14)
 cat("\014")
-#PRZYK£AD
+#PRZYKï¿½AD
 library(UsingR)
 head(homework)
 ks.test(homework$Private, homework$Public)
@@ -638,14 +638,14 @@ Smith
 
 summary(Smith)
 
-# 1.Wyznacz œrednie i zrób wykres
+# 1.Wyznacz ï¿½rednie i zrï¿½b wykres
 aggregate(Smith$data, list(DOSE = Smith$context), FUN = mean)
 boxplot(data ~ context, data = Smith)
 
 # 2.Wykonaj test analizy wariancji
 summary(aov(data ~ context, data = Smith))
 
-# 3.SprawdŸ za³o¿enia modelu jednoczynnikowej analizy wariancji.
+# 3.Sprawdï¿½ zaï¿½oï¿½enia modelu jednoczynnikowej analizy wariancji.
 shapiro.test(lm(data ~ context, data = Smith)$residuals)
 bartlett.test(data ~ context, data = Smith)
 fligner.test(data ~ context, data = Smith)

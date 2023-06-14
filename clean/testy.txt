@@ -6,3 +6,11 @@
    Uwagi, tutaj H0 jest takie, ze obie wartości są równe
 6) Test Welcha dla 2 prób niezależnych ( założenia: normalność, ale nie równość wariancji )
 7) Testy Manna-Whitneya-Wilcoxona ( nie jest konieczna normalność, jedynie ciągła dystrubuanta F )
+8) Test istotności dla wskaźnika struktury ( rozkład 0,1 czyli coś wystąpi, albo nie wystąpi )
+9) Test dwumianowy (tak jak wyżej)
+10) Test istnotności dla dwóch wskaźników struktury (próby niezależne)
+11) Test McNemary test istotnośći dla dwóch wskaźników struktury w przypadku prób zależnych
+    Ale nadal tylko wartości 0/1 sukces lub porażka
+12) Testy X^2 Persona - Dla prób zależnych ale możemy mieć więcej niż dwie opcje (np 3,4 itd)
+13) Testy X^2 Persona dla dwóch prób niezależnych
+14) Test Kołmogorowa-Smirnowa dla jednej próby jest testem zgodności z wybranym rozkładem ciągłym.
