@@ -722,3 +722,58 @@ dunnTest(Wynik ~ Instrukcja, data = tab, method = "bh")
 
 
 rm(list=ls())
+
+##=======================================================
+# (ZAD 7.1)
+#
+cat("\014")
+rok <- c(1995,	1996,	1997,	1998,	1999,	2000,	2001,	2002)
+przypadki <- c(39.7,	38.2,	34.7,	33.1,	30.1,	28.4,	26.3,	24.7)
+data_set <- data.frame(rok,przypadki)
+data_set
+plot(data_set, main = "Wykres rozrzutu", pch = 16)
+
+model <- lm(przypadki ~ rok, data = data_set)
+plot(data_set, main = "Wykres rozrzutu", pch = 16)
+abline(model, col = "red", lwd = 2)
+summary(model)
+nowy <- data.frame(rok = 2003:2007) #kolumna o takiej samej nazwie jak w danych
+pred <- stats::predict(model, nowy, interval = 'prediction')
+
+x <-data.frame(rok=2002:2007,przypadki)
+rm(list=ls())
+
+##=======================================================
+# (ZAD 7.2)
+#
+cat("\014")
+
+load("braking.RData")
+head(braking)
+brakingB <-braking[-27,] #usuniêcie ostaj¹cej wartoœci
+
+#Z obserwacj¹ odstaj¹c¹
+max(braking$distance)
+
+plot(braking, main = "Wykres rozrzutu", pch = 16)
+model <- lm(distance ~ speed, data = braking)
+model
+plot(braking, main = "Wykres rozrzutu", pch = 16)
+abline(model, col = "red", lwd = 2)
+summary(model)
+nowy <- data.frame(speed = 30:50)
+stats::predict(model, nowy, interval = 'prediction')
+
+#===================
+
+#bez obserwacji odstaj¹cej
+plot(brakingB, main = "Wykres rozrzutu", pch = 16)
+model <- lm(distance ~ speed, data = brakingB)
+model
+plot(brakingB, main = "Wykres rozrzutu", pch = 16)
+abline(model, col = "red", lwd = 2)
+summary(model)
+nowy <- data.frame(speed = 30:50) 
+stats::predict(model, nowy, interval = 'prediction')
+
+rm(list=ls())
