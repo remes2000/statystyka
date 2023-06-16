@@ -1,0 +1,1 @@
+> barplot(table(Centrala), xlab = "Centrala", ylab = "Liczebność", main = "Rozkład")

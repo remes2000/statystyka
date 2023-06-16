@@ -1,0 +1,54 @@
+1. najpierw test Shapiro-Wilka (testujemy czy rozkład normalny - potrzebne do kolejnych testów)
+2. test F-Snedecora mierzy wariancje w dwóch próbach niezależnych (test bazuje na estymatorach wariancji)
+  # var.test()
+3. dla testu t-Studenta dla prób niezależnych musi być: niezalezność, normalność, równość wariancji
+4. test t-Studenta dla prób zależnych nie potrzebuje równości wariancji
+
+Test Welscha - test t-Studenta, który nie zakłada równości wariancji (przy próbach niezależnych)
+  # var.equal = TRUE (równość wariancji); FALSE (nierówność)
+
+TESTY BEZ NORMALNOŚCI (nieparametryczne, ale lepsze gdy nie ma normalności)
+ 1. Manna-Whitneya-Wilcoxona (rozkład ciągły)
+  parametr położenia
+  parametr mu może być średnią, ale nie musi
+  
+  1. przypadek ze skryptu - wartości w drugiej próbie mniejsze, rangi mniejsze, suma rang mała; jak będzie wystarczająco mała odrzucamy h0
+  
+  rozkłady graniczne
+  
+  
+  var() - wariancja
+  sd() - odchylenie standardowe
+  
+  
+TESTY DYSKRETNE (brak normalności, brak ciągłości - bazują na rozkładzie granicznym)
+1. Test istotności dla wskaźnika struktury (rozkład 0-1 <bez normalności, bez ciągłości>)
+1.a. Test dwumianowy (dokładny test istotności dla wskaźnika struktury)
+2. Test istotności dla dwóch wskaźników struktury (próby niezależne)
+3. Test McNemary (odmiana testu istotności dla dwóch wskaźników strukury -- próby zależne)
+
+
+TESTY BADAJĄCE ZGODNOŚĆ (z pewnym rozkładem dyskretnym lub ciągłym - rozważamy tylko dyskretne)
+1. Test chi-kwadrat
+  x <- rep(0:7, c(14, 31, 47, 41, 29, 21, 10, 7))
+  lambda_est <- mean(x)
+  # prawdopodobieństwo teoretyczne
+  # 0:6, bo do 7 dokładane są wszystkie większe wartości
+  p0 <- c(dpois(0:6, lambda_est), 1 - ppois(6, lambda_est))
+  chisq.test(table(x), p = p0)
+  # liczba stopni swobody = 8 - 1 - 1
+  1 - pchisq(2.1658, 6)
+2. Test chi-kwadrat dla dwóch prób niezależnych
+  z przykładu:
+    prawdopodobieństwa dla wartości dobra, średnia i zła są takie same
+
+
+TESTY BADAJĄCE ZGODNOŚĆ (z pewnym rozkładem ciągłym)
+1. Testy Komogonowa-Smirnoffa
+1.a Dla jednej próby
+  hipoteza związana z dystrybuantą
+  F0 to dystrybuanta rozkładu teoretycznego
+  wykorzystujemy estymator dystrybuanty F (empirycznej) - liczy procent obserwacji mniejszych od x (szacowanie prawdopodobieństwa)
+  liczy różnicę dystrybuanty dla tych samych x
+1.b Dla dwóch prób
+  pyta czy dystrybuanty są sobie równe (są, gdy są równe rozkłady)

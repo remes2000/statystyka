@@ -1,0 +1,11 @@
+Zadania Statystyka:
+Tabelka - Empryczne metody statystyki opisowej
+Zadania podobne do: 3.3, 5.10 oraz 6.1
+
+Rozk�ad empiryczny
+Testy 
+Por�wnanie dw�ch grup
+Regresja, predykcja - 7 temat, 1 przyk�ad
+Przychody wydatki (tutaj na egz by�a energia)
+2 pr�by niezale�ne dla 8 i 6 os�b (t-studenta)
+Przedzia�y ufno�ci, estymatory, normalno�ci itd

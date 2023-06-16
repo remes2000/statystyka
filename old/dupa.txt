@@ -1,0 +1,75 @@
+###### Zadanie 2. Przebadano 200 losowo wybranych 5-sekundowych okresów pracy centrali telefonicznej. Rejestrowano
+###### liczbê zg³oszeñ. Wyniki s¹ zawarte w pliku Centrala.RData.
+
+# 1. Zasugeruj rozk³ad teoretyczny badanej zmiennej.
+
+#rozk³ad poissona z z X ~ U(0,5)?
+
+# 2. Oblicz wartoœæ estymatora parametru rozk³adu teoretycznego.
+load("D:/Pliki/Szkola/Studia/R.3.S.2/Statystyka/Cw/Centrala.RData")
+lambda_est <- mean(Centrala$Liczba)
+
+# 3. Porównaj empiryczne prawdopodobieñstwa wyst¹pienia poszczególnych wartoœci liczby zg³oszeñ w próbie
+# z wartoœciami teoretycznymi uzyskanymi na podstawie rozk³adu teoretycznego.
+probs <- dpois(sort(unique(Centrala$Liczba)), lambda = lambda_est)
+sum(probs)
+
+
+
+counts <- matrix(c(prop.table(table(Centrala$Liczba)), probs), nrow = 2, byrow = TRUE)
+rownames(counts) <- c("empiryczny", "teoretyczny")
+colnames(counts) <- sort(unique(Centrala$Liczba))
+counts
+
+
+
+barplot(counts,
+        xlab = "Liczba zg³oszeñ", ylab = "Prawdopodobieñstwo",
+        main = "Rozk³ady empiryczny i teoretyczny liczby zg³oszeñ",
+        col = c("red", "blue"), legend = rownames(counts), beside = TRUE)
+
+#4. Wykres kwantyl-kwantyl
+qqplot(rpois(length(Centrala$Liczba), lambda = lambda_est), Centrala$Liczba)
+qqline(Centrala$Liczba, distribution = function(probs) { qpois(probs, lambda = lambda_est) })
+
+# 5. Czy na podstawie powy¿szych rozwa¿añ rozk³ad teoretyczny wydaje siê odpowiedni?
+
+#tak
+
+# 6. Oblicz prawdopodobieñstwo empiryczne i teoretyczne, ¿e liczba zg³oszeñ jest mniejsza ni¿ 4.
+mean(Centrala$Liczba < 4) #empiryczne
+ppois(3, lambda = lambda_est) #teoretyczne
+
+# 7. Wyznacz (trzema metodami) przedzia³ ufnoœci dla parametru rozk³adu teoretycznego.
+library(EnvStats)
+epois(Centrala$Liczba, ci = TRUE, ci.method = "exact")
+epois(Centrala$Liczba, ci = TRUE, ci.method = "pearson.hartley.approx")
+epois(Centrala$Liczba, ci = TRUE, ci.method = "normal")
+
+
+
+###### Zadanie 3. Zmienna w pliku awarie.txt opisuje wyniki 50 pomiarów czasu 
+###### bezawaryjnej pracy danego urz¹dzenia (w godzinach).
+
+awarie <- read.table("http://ls.home.amu.edu.pl/data_sets/awarie.txt", dec=",")
+
+(lambda_est <- 1/mean(awarie$V1))
+
+hist(awarie$V1, 
+     xlab = "D³ugoœæ drogi hamowania", 
+     main = "Rozk³ady empiryczny i teoretyczny d³ugoœci drogi hamowania",
+     probability = TRUE, 
+     col = "grey")
+lines(density(awarie$V1), col = "red", lwd = 3)
+curve(dexp(x, lambda_est), 
+      add = TRUE, col = "green", lwd = 3)
+legend("topleft", legend = c("S", "ENW", "ENMW"), col = c("blue", "green", "red"), lwd = 3)
+
+
+
+
+# wykres kwantyl-kwantyl
+qqplot(rexp(length(awarie$V1), lambda_est), awarie$V1)
+qqline(awarie$V1, distribution = function(probs) { qexp(probs, lambda_est) })
+
+

@@ -1,0 +1,75 @@
+###### Zadanie 2. Przebadano 200 losowo wybranych 5-sekundowych okresów pracy centrali telefonicznej. Rejestrowano
+###### liczbę zgłoszeń. Wyniki są zawarte w pliku Centrala.RData.
+
+# 1. Zasugeruj rozkład teoretyczny badanej zmiennej.
+
+#rozkład poissona z z X ~ U(0,5)?
+
+# 2. Oblicz wartość estymatora parametru rozkładu teoretycznego.
+load("D:/Pliki/Szkola/Studia/R.3.S.2/Statystyka/Cw/Centrala.RData")
+lambda_est <- mean(Centrala$Liczba)
+
+# 3. Porównaj empiryczne prawdopodobieństwa wystąpienia poszczególnych wartości liczby zgłoszeń w próbie
+# z wartościami teoretycznymi uzyskanymi na podstawie rozkładu teoretycznego.
+probs <- dpois(sort(unique(Centrala$Liczba)), lambda = lambda_est)
+sum(probs)
+
+
+
+counts <- matrix(c(prop.table(table(Centrala$Liczba)), probs), nrow = 2, byrow = TRUE)
+rownames(counts) <- c("empiryczny", "teoretyczny")
+colnames(counts) <- sort(unique(Centrala$Liczba))
+counts
+
+
+
+barplot(counts,
+        xlab = "Liczba zgłoszeń", ylab = "Prawdopodobieństwo",
+        main = "Rozkłady empiryczny i teoretyczny liczby zgłoszeń",
+        col = c("red", "blue"), legend = rownames(counts), beside = TRUE)
+
+#4. Wykres kwantyl-kwantyl
+qqplot(rpois(length(Centrala$Liczba), lambda = lambda_est), Centrala$Liczba)
+qqline(Centrala$Liczba, distribution = function(probs) { qpois(probs, lambda = lambda_est) })
+
+# 5. Czy na podstawie powyższych rozważań rozkład teoretyczny wydaje się odpowiedni?
+
+#tak
+
+# 6. Oblicz prawdopodobieństwo empiryczne i teoretyczne, że liczba zgłoszeń jest mniejsza niż 4.
+mean(Centrala$Liczba < 4) #empiryczne
+ppois(3, lambda = lambda_est) #teoretyczne
+
+# 7. Wyznacz (trzema metodami) przedział ufności dla parametru rozkładu teoretycznego.
+library(EnvStats)
+epois(Centrala$Liczba, ci = TRUE, ci.method = "exact")
+epois(Centrala$Liczba, ci = TRUE, ci.method = "pearson.hartley.approx")
+epois(Centrala$Liczba, ci = TRUE, ci.method = "normal")
+
+
+
+###### Zadanie 3. Zmienna w pliku awarie.txt opisuje wyniki 50 pomiarów czasu 
+###### bezawaryjnej pracy danego urządzenia (w godzinach).
+
+awarie <- read.table("http://ls.home.amu.edu.pl/data_sets/awarie.txt", dec=",")
+
+(lambda_est <- 1/mean(awarie$V1))
+
+hist(awarie$V1, 
+     xlab = "Długość drogi hamowania", 
+     main = "Rozkłady empiryczny i teoretyczny długości drogi hamowania",
+     probability = TRUE, 
+     col = "grey")
+lines(density(awarie$V1), col = "red", lwd = 3)
+curve(dexp(x, lambda_est), 
+      add = TRUE, col = "green", lwd = 3)
+legend("topleft", legend = c("S", "ENW", "ENMW"), col = c("blue", "green", "red"), lwd = 3)
+
+
+
+
+# wykres kwantyl-kwantyl
+qqplot(rexp(length(awarie$V1), lambda_est), awarie$V1)
+qqline(awarie$V1, distribution = function(probs) { qexp(probs, lambda_est) })
+
+

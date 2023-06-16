@@ -1,0 +1,74 @@
+#11.1
+
+#Zad2
+#Użyj funkcji rep(), aby utworzyć wektor logiczny, zaczynając od 
+#trzech wartości prawda, następnie czterech wartości fałsz, po 
+#których następują dwie wartości prawda i wreszcie pięć wartości fałsz. 
+#Przypisz ten wektor logiczny do zmiennej x. Na koniec przekonwertuj 
+#ten wektor na wektor numeryczny. Jak zmieniły się wartości prawda i 
+#fałsz?
+
+c(rep(TRUE,3), rep(FALSE,4), rep(TRUE,2), rep(FALSE,5))
+
+#Zad3
+#Palindromem nazywamy wektor, którego elementy czytane od końca 
+#tworzą ten sam wektor co elementy czytane od początku. Utwórz taki 
+#wektor 100 liczb przy czym pierwsze 20 liczb to kolejne liczby 
+#naturalne, następnie występuje 10 zer, następnie 20 kolejnych 
+#liczb parzystych, a pozostałe elementy określone są przez 
+#palindromiczność (warunek symetrii).
+
+c(1:20, rep(0,10), seq(2,40,2), seq(40,2,-2), rep(0,10), 20:1)
+
+#zad4
+#Z wektora letters wybierz litery na pozycjach 5, 10, 15, 20, 25.
+
+letters[seq(5,25,5)]
+
+#zad5
+#Utwórz wektor liczb naturalnych od 1 do 1000, a następnie zamień liczby parzyste na ich odwrotności.
+
+x = 1:1000
+x[seq(2,1000,2)]
+x[seq(2,1000,2)] = 1/x[seq(2,1000,2)]
+x[seq(1000)]
+
+#zad9
+#W pakiecie schoolmath znajduje się zbiór danych primlist, który zawiera liczby pierwsze pomiędzy 1 a 9999999.
+
+library(schoolmath)
+data(primlist)
+#1
+max(primlist[primlist<1000])
+#2
+length(primlist[primlist>100&primlist<500])
+
+#zad13
+#Skonstruuj listę o nazwie moja_lista, 
+#której pierwszym elementem będzie dwuelementowy wektor napisów 
+#zawierający Twoje imię i nazwisko, drugim elementem będzie 
+#liczba π , trzecim funkcja służąca do obliczania pierwiastka 
+#kwadratowego, a ostatni element listy to wektor złożony z 
+#liczb 0 , 02 ; 0 , 04 ; … ; 1 . Następnie usuń elementy numer jeden 
+#i trzy z tej listy. Na zakończenie, wyznacz listę zawierającą 
+#wartości funkcji gamma Eulera dla elementów listy moja_lista.
+
+lista = list(c("imie","nazwisko"),pi,sqrt,seq(0.02,1,0.02))
+
+lista[1]=NULL
+lista[2]=NULL
+
+lapply(lista, gamma)
+
+#zad18
+#Ile liczb postaci ( n r ) jest wiekszych od miliona dla 1 ⩽ r ⩽ n ⩽ 100 ?
+
+count=0
+for (n in 1:100){
+  for (r in 1:n){
+    if (choose(n,r) > 1000000) count = count + 1
+  }
+}
+
+
+

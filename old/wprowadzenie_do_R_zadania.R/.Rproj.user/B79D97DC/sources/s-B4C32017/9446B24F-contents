@@ -1,0 +1,3 @@
+ankieta_p <- ankieta[ankieta$szkola =="p"], ]
+data.frame(cbind(liczebnosc = tablie(akpieta_p$wynik))) etc
+

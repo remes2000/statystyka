@@ -1,0 +1,16 @@
+
+
+print ("Original Dataframe")
+print(data_frame) //tablica zamiast data_frame
+
+# getting number of rows in R
+rows <- nrow(data_frame)
+
+# extracting odd rows 
+odd_rows <- seq_len(rows) %% 2
+
+# getting data from odd data frame
+data_mod <- data_frame[odd_rows == 1, ]
+
+print ("odd rows of dataframe")
+print(data_mod)

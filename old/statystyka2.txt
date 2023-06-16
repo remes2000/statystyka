@@ -1,0 +1,17 @@
+Notatki
+c - Wektory wartoœci logicznych, combine, ³¹cz 
+rep - powtarza np. rep(TRUE,2)
+as.ingeter - zamienia na wartoœæ numeryczn¹
+seq(x,y,z) x poczatek, y koniec, z o ile
+rev - reverse
+
+
+Zadania
+(x < - rep(c(TRUE, FALSE, TRUE, FALSE), c(3,4,2,5)))
+as.numeric(x)
+3/temp <- c(1:20, numeric(10), seq(2,40,2))
+c(temp,rev(temp))
+library(nazwaPakietu) odwo³anie do pakietu
+Zad5/x[x%%2==0] <- 1/x[x%%2 == 0]
+
+str

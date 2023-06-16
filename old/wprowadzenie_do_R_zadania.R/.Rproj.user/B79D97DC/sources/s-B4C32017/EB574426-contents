@@ -1,0 +1,1 @@
+tablica <- read.table("http://ls.home.amu.edu.pl/data_sets/ankieta.txt", dec=",")

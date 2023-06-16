@@ -1,0 +1,118 @@
+5.3
+Zale¿ne próby by³yby zale¿ne, gdyby
+Pierwsza grupa - nie widzia³a filmu
+Druga grupa - widzia³a film
+Próby niezale¿ne
+
+Pierwsza - nie widzia³a film
+Drugie BADANIE (!) widzia³a film
+Próba zale¿na, bo jest ta sama grupa
+
+0.7026 > 0.05 => brak postaw do odrzucenia H0 (chodzi o p-value w shapiro.test)
+gdyby nie by³o to wilkonsona
+H0: mu_1 = mu_2
+przed jest mniejsze(90), ni¿ po(94,7)
+p-value = 0.0003787 < 0.05 - odrzucamy H0 
+h1: mu_1 < mu_2
+var - równoœæ wariacji 
+F-Snedecora (var.test)
+dlaczego greater? estymatory wariacji 
+liczymy var dla man i var k
+
+odrzucamy test wariancji: 0.04689 < 0.05 odrzucamy H0
+Test Welcha - t.test
+p-value = 6.929e-07 - 10^-7 czyli ZDECYDOWANIE mniejsze ni¿ 0.05
+ZADANIE 5.
+Tego robiæ nie bêdziemy.
+ZADANIE 6.
+Generowanie testu obserwacji
+x <- rexp(100)
+
+H0: mu = 250
+H1: mu ? 250
+Za³. nie ma normalnoœci 
+mu - wartgoœæ teoretyczna/nominalna
+ZADANIE 7.
+Grupy zale¿ne: paired = FALSE
+p=0.02926 < 0.05 odrzucamy h0
+Czyli hipnoza dzia³a 
+Dlaczego h0 odrzulisimy? bo h0 mówi, ze hipnoza jest równa
+ZADANIE 8.
+badamy wystêpowanie pury (0/1) - wyst¹pi lub nie - dyskretny
+Jedna próba o 22 obserwacjach
+test dwumianowy lub wskaŸnika struktury
+H0 : p = 0,7
+H1 : p? 0.7
+prop.test(x=18, n=22, p=0.7, alternative="greater")
+Estymator wynosi: 0.82
+p=0.1643>0.05
+binom.test(x=18, n=22, p=0.7, alternative="greater")
+Cecha zerojedynkowa (test dwumianowe lub wskaŸnik) trzeba pamiêtaæ
+ZADANIE 9.
+Cecha zerojedynkowa 
+> prop.test(c(20, 45), c(120, 150), alternative = "less")
+p.value < 0.05
+h0 = jest takie same
+Zazwyczaj ejst o równoœci, ¿e p1=p2
+a h1: p_1< p_2
+Czyli odrzucamy H0
+ZADANIE 10.
+Zale¿ne (Ci sami obywatele), zerojedynkowe
+> matrix(c(794, 86, 150, 570), nrow = 2) - tworzymy macierz
+mcnemar.test(matrix(c(794, 86, 150, 570), nrow = 2))
+p> 4.115 * 10^-5
+ZADANIE 11
+#zad11
+> p1 <- c(2,5,3)/sum(c(2,5,3))
+[1] 0.2 0.5 0.3
+chisq.test(c(38,72,40), p=p0)
+#Spe³nia preferencjê klientów
+ZADANIE13
+Dwie próby (metoda 1, metoda 2)
+Jakoœæ
+hi2
+> matrix(c(50,20,10,90,50,6), nrow=3)
+chisq.test(matrix(c(50,20,10,90,50,6), nrow=3))
+p-value = 0.03741
+mean - srednia
+sd - odchylenie standardowe
+ZADANIE 14
+Przyjmujemy h0
+ks.test(x, "pnorm", mean(x), sd(x))
+
+plot(ecdf(x), main ="Dystrybuanta")
+lines(pnorm(seq(220, 270, 1), mean(x), sd(x)), type = "l")
+curve(pnorm(x, mean(x), sd(x)), add = TRUE, from = 220, to 260)
+ZADANIE 15
+ ks.test(awarie$V1,"pexp", lambda_est)
+ curve(pexp(x, lambda_est), add=TRUE, col = "red")
+ZADANIE 16
+ library(UsingR)
+ks.test(homework$Private, homework$Public)
+> plot(ecdf(homework$Private))
+> plot(ecdf(homework$Public))
+> plot(ecdf(homework$Public), col = "blue", add= TRUE)
+ZADANIE 17
+nr <- 1000
+temp <- numeric(nr)
+for (i in 1:1000){
+x <- homework$Private[sample(1:15, 15, replace="TRUE"]
+y <- homework$Public[sample(1:15, 15, replace="TRUE"
+temp[i] <- ks.test(x, y)$statistic
+}
+mean(temp> ks.test(homework$private, homework$Public$statistic))
+DZIA£ 6
+ZADANIE 1
+Analiza wariancji 
+Pr(>F) 
+http://ls.home.amu.edu.pl/data_sets/kontekst.txt
+View(date)
+colnames(date) <- c("number", "context")
+date$context <- as.factor(date$context)
+aggregate(date$number, list(CONTEXT = date$context), FUN = mean)
+boxplot(number ~ context, data=date, xlab = "Kontekst", ylab = "Liczba s³ów"
+  summary(aov(number ~ context, data = date))
+
+
+
+

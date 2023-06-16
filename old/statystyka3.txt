@@ -1,0 +1,24 @@
+> data.frame(cbind(liczebnosc=table(Centrala$Liczba), procent = prop.table(table(Centrala$Liczba))))
+  liczebnosc procent
+0         32   0.160
+1         67   0.335
+2         49   0.245
+3         31   0.155
+4         15   0.075
+5          6   0.030
+> barplot(table(Centrala))
+> barplot(table(Centrala), xlab = Centrala, ylab = "Liczebnoœæ", main "Rozk³ad")
+Error: unexpected string constant in "barplot(table(Centrala), xlab = Centrala, ylab = "Liczebnoœæ", main "Rozk³ad""
+> barplot(table(Centrala), xlab = "Centrala", ylab = "Liczebnoœæ", main "Rozk³ad")
+Error: unexpected string constant in "barplot(table(Centrala), xlab = "Centrala", ylab = "Liczebnoœæ", main "Rozk³ad""
+> barplot(table(Centrala), xlab = "Centrala", ylab = "Liczebnoœæ", main = "Rozk³ad")
+> mean(Liczba)
+Error in mean(Liczba) : object 'Liczba' not found
+> mean(Centrala$Liczba)
+[1] 1.74
+> median(Centrala$Liczba)
+[1] 2
+> sd(Centrala$Liczba)
+[1] 1.28086
+> sd(Centrala$Liczba) / mean(Centrala$Liczba) * 100
+[1] 73.61266

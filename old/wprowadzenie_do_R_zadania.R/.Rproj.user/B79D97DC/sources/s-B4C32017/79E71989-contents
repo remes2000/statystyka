@@ -1,0 +1,1 @@
+data.frame(cbind(liczebnosc=table(tablica$wynik), procent = prop.table(table(tablica$wynik))))
