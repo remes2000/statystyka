@@ -14,3 +14,9 @@
 12) Testy X^2 Persona - Dla prób zależnych ale możemy mieć więcej niż dwie opcje (np 3,4 itd)
 13) Testy X^2 Persona dla dwóch prób niezależnych
 14) Test Kołmogorowa-Smirnowa dla jednej próby jest testem zgodności z wybranym rozkładem ciągłym.
+15) Testy równości wariancji w grupach (wielu, więcej niż dwóch): (testy parametryczne zakładają równość wariancji i rozkład normalny)
+    - Test Bartletta
+    - Test Flingera-Killeena
+    - Test Levene'accessible
+    - Test Browna-Forsytha
+16) Test Kurskala-Wallisa - jest nieparametryczny
