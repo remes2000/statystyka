@@ -1,0 +1,29 @@
+ZADANIE 1
+Czy szereg rozdzielczy dla cechy jakościowej buduje się tak samo niż dla cechy ilościowej ciągłej?
+
+ZADANIE 2
+Przeprowadzono badanie czasu snu i odnotowano takie długości snu:
+43, 53, 39, 45, 51, 48, 32, 41, 34
+
+1) Czy czas snu ma rozkład normalny?
+2) Wyznacz estymatory i podaj przedziały ufności
+
+ZADANIE 3
+Zbadano pojemność płuc u osób które uprawiają sport i nie uprawiaja sportu
+uprawiaja sport:
+3776, 3908, 4623, 4028, 4052, 4686, 4184, 3494
+nie uprawiają sportu:
+3332, 3426, 4077, 3740, 3756, 3643
+
+Czy uprawianie sportu w znaczący sposób wpływa na pojemność płuc?
+
+ZADANIE 4
+Zbadano zależność produkcji do zużytej energii
+produkcja:
+2.1, 6.3, 9.7, 4.8, 10.1, 6.1, 5.8, 9.7
+energia:
+22.35, 57.19, 81.12, 46.32, 82.39, 53.70, 56.93, 84.27
+
+Opracuj model regresji liniowej, oblicz ile energi zużyje zakład gdy produkcja wyniesie wartość 90
+
+Wyświetl przedziały ufności dla modelu
