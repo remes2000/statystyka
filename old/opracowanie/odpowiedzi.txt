@@ -1,0 +1,67 @@
+ZADANIE 1
+Nie poniewaz szereg rozdzielczy dla cechy jakosciowej skupia sie na liczebnosci w poszczególnych kategoriach,
+natomiast dla cechy ilosciowej ciągłej skupiamy sie na liczebności w pewnych przedziałach wystepujacych wartosci
+
+ZADANIE 2
+data <- c(43, 53, 39, 45, 51, 48, 32, 41, 34)
+shapiro.test(data)
+# 0.8757 > 0.05 rozklad normalny
+
+mu_est <- mean(data)
+sigma_est <- sd(data)
+
+library(EnvStats)
+enorm(data,
+      method = "mvue",
+      ci = TRUE, ci.type = "two-sided", conf.level = 0.95, ci.param = "mean")
+
+     LCL      UCL 
+37.35335 48.42443 
+
+ZADANIE 3
+# Dwie próby, niezależne
+# Test normalnosci
+sport <- c(3776, 3908, 4623, 4028, 4052, 4686, 4184, 3494)
+no_sport <- c(3332, 3426, 4077, 3740, 3756, 3643)
+
+shapiro.test(sport)
+# normalnosc
+
+shapiro.test(no_sport)
+# normalnosc
+
+#rownosc wariancji
+var(sport)
+# 162892
+var(no_sport)
+# 70420
+
+# a wiec alternative = greater
+var.test(sport, no_sport, alternative = "greater")
+# 0.1865 > 0.05 akceptujemy H0, rownosc wariancji
+
+mean(sport)
+# 4093
+mean(no_sport)
+# 3662 
+
+# alternative = greater
+t.test(sport, no_sport, alternative = "greater", var.equal = TRUE)
+# 0.02 < 0.05 a wiec odrzucamy H0
+# a wiec sport wpływa znaczoąco na płuca
+
+ZADANIE 4
+produkcja <- c(2.1, 6.3, 9.7, 4.8, 10.1, 6.1, 5.8, 9.7)
+energia <- c(22.35, 57.19, 81.12, 46.32, 82.39, 53.70, 56.93, 84.27)
+data_set <- data.frame(produkcja = produkcja, energia = energia)
+
+# Wykres rozrzutu
+plot(data_set, main = "Wykres rozrzutu", pch = 16)
+
+model <- lm(energia ~ produkcja, data = data_set)
+
+plot(data_set, main = "Wykres rozrzutu", pch = 16)
+abline(model, col = "red", lwd = 2)
+
+confint(model)
+stats::predict(model, data.frame(produkcja = c(12)), interval = 'prediction')

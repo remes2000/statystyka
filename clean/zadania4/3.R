@@ -33,6 +33,7 @@ pexp(1500, rate = enw) - pexp(1000, rate = enw)
 
 # przedziały ufności
 # install.packages("EnvStats")
+# Krystian inaczej policzył do eexp - zobacz u niego
 library(EnvStats)
 EnvStats::eexp(awarie$V1, ci = TRUE)$interval$limits
 

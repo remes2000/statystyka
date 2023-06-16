@@ -27,3 +27,4 @@ energia:
 Opracuj model regresji liniowej, oblicz ile energi zużyje zakład gdy produkcja wyniesie wartość 90
 
 Wyświetl przedziały ufności dla modelu
+

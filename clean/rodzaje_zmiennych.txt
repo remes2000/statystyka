@@ -12,3 +12,14 @@ Ilościowa - istnieje porządek i można wykonywać operacje arytmetyczne.
         W próbie wartości zmiennej powtarzają się. Na przykład: liczba zgłoszeń w centrali telefonicznej.
     ciągła - Istnieje nieskończenie, nieprzeliczalnie wiele możliwych wartości zmiennej. 
         W próbie wartości zmiennej nie powinny się powtarzać. Na przykład: czas, waga, wysokość, zarobki.
+
+Przykłady:
+    - Jak oceniasz działalność prezydenta miasta? (a bardzo dobrze, b dobrze, c średnio ...)
+        = JAKOŚCIOWA PORZĄDKOWA
+    - Ilośc zgłoszeń w centrali telefonicznej 
+        = ILOŚCIOWA DYSKRETNA
+    - Czas bezawaryjnej pracy liczony w godzinach
+        = ILOŚCIOWA CIĄGŁA
+    - Droga hamowania w metrach
+        = ILOŚCIOWA CIĄGŁA
+        
