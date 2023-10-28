@@ -12,7 +12,7 @@ gitbook.require(["gitbook", "lodash", "jQuery"], function(gitbook, _, $) {
             engine: config.search.engine || 'lunr',
             opts: config.search.options || {},
         });
-    };
+    }
 
     // Save current search settings
     function saveSearchSettings() {
